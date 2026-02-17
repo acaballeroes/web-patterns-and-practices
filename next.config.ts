@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },
+  // Export as static site for Azure Static Web Apps
+  output: "export",
 };
 
 export default nextConfig;
