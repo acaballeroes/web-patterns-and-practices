@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   compress: true,
   poweredByHeader: false,
+  // Enable system TLS certificates for Google Fonts
+  experimental: {
+    turbopackUseSystemTlsCerts: true,
+  },
 };
 
 export default nextConfig;
