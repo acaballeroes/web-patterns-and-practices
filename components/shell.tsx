@@ -1,6 +1,6 @@
 "use client";
 
-import { SidebarInset, useSidebar } from "./ui/sidebar";
+import { SidebarInset, SidebarTrigger, useSidebar } from "./ui/sidebar";
 import { Separator } from "./ui/separator";
 import { AppSidebar } from "@/components/app-sidebar";
 
@@ -9,18 +9,19 @@ export function Shell({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { state } = useSidebar();
+  const { state, isMobile } = useSidebar();
 
   return (
     <>
       <AppSidebar />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 sticky top-0 z-20 bg-background">
+          <SidebarTrigger />
           <Separator
             orientation="vertical"
             className="mr-2 data-[orientation=vertical]:h-4"
           />
-          {state === "collapsed" && (
+          {(state === "collapsed" || isMobile) && (
             <h1 className="text-lg font-semibold">Dev Patterns & Practices</h1>
           )}
         </header>
